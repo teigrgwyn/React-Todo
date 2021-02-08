@@ -1,9 +1,9 @@
-import React from 'react';
+// import React from 'react';
 
-export default class Todo extends React.Component {
-  render() {
-    return (
-      <div></div>
-    )
-  }
+const Todo = props => {
+  return (
+    props.todo
+  )
 }
+
+export default Todo;

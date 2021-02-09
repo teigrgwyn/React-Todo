@@ -17,23 +17,29 @@ class App extends React.Component {
 
   onClickTask = (clickedTask) => {
     console.log(clickedTask);
-    clickedTask.toggleClass('done');
+    //clickedTask.toggleClass('done');
 
-    this.state.todoList.forEach(todo => {
+    let test = this.state.todoList.map(todo => {
       if (todo.id === clickedTask.id) {
         todo.completed = !todo.completed;
+        return todo;
       }
+
+      return todo;
     })
+    this.setState({ todoList: test });
   }
 
   onSubmit = e => {
     e.preventDefault();
-    this.state.todoList.push({
+    this.setState({
+      ...this.state.todoList,
       task: this.state.task,
       id: Date.now(),
       completed: false
-    });
-    this.setState({ task: '' }); // doesn't trigger refresh?
+    })
+    
+    this.setState({ task: '' });
   }
 
   onClickClear = e => {

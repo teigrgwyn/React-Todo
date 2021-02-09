@@ -1,8 +1,10 @@
-// import React from 'react';
+import React from 'react';
 
 const Todo = props => {
   return (
-    props.todo
+    <div onClick={() => props.onClickTask(props.todo)}>
+      {props.todo.task}
+    </div>
   )
 }
 

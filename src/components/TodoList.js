@@ -3,8 +3,9 @@ import Todo from './Todo';
 
 const TodoList = props => {
   return (
-    props.todoList.map((todo, index) => (
-      <Todo id={index} todo={todo} />
+    // returns an identical key warning on first render likely due to the default state set
+    props.todoList.map(todo => (
+      <Todo key={todo.id} task={todo} todo={todo} onClickTask={props.onClickTask} />
     ))
   )
 }

@@ -22,7 +22,6 @@ class App extends React.Component {
     let test = this.state.todoList.map(todo => {
       if (todo.id === clickedTask.id) {
         todo.completed = !todo.completed;
-        return todo;
       }
 
       return todo;
@@ -32,13 +31,11 @@ class App extends React.Component {
 
   onSubmit = e => {
     e.preventDefault();
-    this.setState({
-      ...this.state.todoList,
+    this.state.todoList.push({
       task: this.state.task,
       id: Date.now(),
       completed: false
-    })
-    
+    });
     this.setState({ task: '' });
   }
 
